@@ -53,7 +53,6 @@ static char	*count_lett(char const **str, char c)
 	s = (char *)*str;
 	while (s[i] && s[i] != c)
 		i++;
-	*s += i;
 	return (ft_substr(s, 0, i));
 }
 
@@ -78,6 +77,7 @@ char	**ft_split(char const *s, char c)
 				free_array(new);
 				return (NULL);
 			}
+			s += ft_strlen(new[k-1]);
 		}
 		else
 			s++;
