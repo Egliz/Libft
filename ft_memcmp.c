@@ -21,30 +21,14 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;
 	i = 0;
-//	if (n == 0)
-//		return (NULL);
-	while (*str1 != '\0' && *str2 != '\0' && *str1 == *str2 && i < n)
+	if (n == 0)
+		return (0);
+	while (i < n)
 	{
-		str1++;
-		str2++;
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
 		i++;
 	}
-	return (*str1 - *str2);
-}
-
-int main(void)
-{
-
-
-	char s[] = {-128, 0, 127, 0};
-	char sCpy[] = {-128, 0, 127, 0};
-	char s2[] = {0, 0, 127, 0};
-	char s3[] = {0, 0, 42, 0};
-	/* 1 */ printf("copia; %i",ft_memcmp(s, sCpy, 4));
-	/* 2 */ printf("copia; %i",ft_memcmp(s, s2, 0));
-	/* 3 */ printf("copia; %i",ft_memcmp(s, s2, 1) > 0);
-	/* 4 */ printf("copia; %i",ft_memcmp(s2, s, 1) < 0);
-	/* 5 */ printf("copia; %i",ft_memcmp(s2, s3, 4) != 0);
 	return (0);
 }
 /*

@@ -85,7 +85,7 @@ char	**ft_split(char const *s, char c)
 	new[k] = NULL;
 	return (new);
 }
-
+/*
    int	main()
    {
    char *str = "Hola que tal estas";
@@ -107,4 +107,4 @@ free(result[i]);  // Liberar cada palabra
 
 free(result);  // Liberar el array
 return 0;
-}
+}*/

@@ -14,16 +14,17 @@
 
 char	*ft_strchr(const char *s, int c)
 {
+	unsigned  char	ch;
 	char	*str;
 
 	str = (char *)s;
-	while (*str != c && *str != '\0')
+	ch = (unsigned char)c;
+	while (*str != ch && *str != '\0')
 		str++;
-	if ((*str == c) || (*str == '\0'))
+	if ((*str == ch) || (ch == '\0'))
 		return (str);
 	else
 		return (NULL);
-	
 }
 /*
 int	main(void)
@@ -33,7 +34,7 @@ int	main(void)
 	char	*result;
 	char	*orig;
 
-	n = 'o';
+	n = '\0';
 	result = ft_strchr(str, n);
 	orig = strchr(str, n);
 	printf("mio: %s\n", result);

@@ -16,33 +16,35 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*str;
 	char	*res;
+	unsigned char ch;
 	int		i;
 
 	if (s == NULL)
-		return (0);
+		return (NULL);
 	str = (char *)s;
+	ch = (unsigned char)c;
 	i = 0;
 	res = NULL;
 	while (str[i] != '\0')
 	{
-		if (str[i] == c)
+		if (str[i] == ch)
 			res = &str[i];
 		i++;
 	}
-	if (c == '\0')
+	if (ch == '\0')
 		return (&str[i]);
 	return (res);
 }
 /*
 int main()
 {
-   // char    stri[]= "hola probando";
-   // char    let = 'o';
-   // char    orig[]= "hola probando";
-   // char    l = 'o';
+    char    stri[]= "hola probando";
+    char    let = 'a';
+    char    orig[]= "hola probando";
+    char    l = 'a';
 
-    printf(" la mia %s\n", ft_strrchr("Hola Mundo", 'H'));
-    // printf(" la orig %s\n", strrchr(orig,l));
+    printf(" la mia %s\n", ft_strrchr(stri,let));
+    printf(" la orig %s\n", strrchr(orig,l));
 
     return 0;
 }*/
