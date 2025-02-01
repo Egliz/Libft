@@ -6,7 +6,7 @@
 #    By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/27 23:00:47 by emorillo          #+#    #+#              #
-#    Updated: 2024/10/28 21:30:22 by emorillo         ###   ########.fr        #
+#    Updated: 2025/01/31 17:00:12 by emorillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,16 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 
 OBJS = $(SRC:.c=.o)
 
+BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(LIB) $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(BONUS_OBJS)
+	$(LIB) $(NAME) $(BONUS_OBJS)
 
 %.o: %.c Makefile libft.h
 	$(CC) $(CFLAGS) -c $< -o $@

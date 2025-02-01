@@ -6,7 +6,7 @@
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:06:40 by emorillo          #+#    #+#             */
-/*   Updated: 2024/10/27 21:33:53 by emorillo         ###   ########.fr       */
+/*   Updated: 2024/10/31 22:17:29 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*str;
-	char	*res;
-	unsigned char ch;
-	int		i;
+	char			*str;
+	char			*res;
+	unsigned char	ch;
+	int				i;
 
 	if (s == NULL)
 		return (NULL);

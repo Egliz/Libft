@@ -1,48 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 00:44:15 by emorillo          #+#    #+#             */
-/*   Updated: 2024/11/02 17:23:37 by emorillo         ###   ########.fr       */
+/*   Created: 2025/01/28 17:48:29 by emorillo          #+#    #+#             */
+/*   Updated: 2025/01/31 15:59:16 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	int		len;
+	t_list	*new_list;
+	t_list	*new_node;
 
-	i = 0;
-	len = 0;
-	while (src[len])
+	if (lst == NULL || f == NULL || del == NULL)
+		return (NULL);
+	new_list = NULL;
+	while (lst != NULL)
 	{
-		len++;
-	}
-	if (size > 0)
-	{
-		while (i < size - 1 && src[i] != '\0')
+		new_node = ft_lstnew(f(lst->content));
+		if (new_node == NULL)
 		{
-			dst[i] = src[i];
-			i++;
+			ft_lstclear(&new_list, del);
+			return (NULL);
 		}
-		dst[i] = '\0';
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
 	}
-	return (len);
+	return (new_list);
 }
-/*
-int	main(void)
-{
-	size_t	i;
-	char	src[]= "Hola mundo!";
-	char	dest[] = "Adios";
-
-	i = ft_strlcpy(dest, src, 30);
-	printf("%zu\n", i);
-	printf("%s", dest);
-	return (0);
-} */

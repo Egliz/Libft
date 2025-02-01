@@ -6,7 +6,7 @@
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 21:08:47 by emorillo          #+#    #+#             */
-/*   Updated: 2024/10/28 19:39:58 by emorillo         ###   ########.fr       */
+/*   Updated: 2024/10/31 22:16:59 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (s == NULL)
 		return (NULL);
 	if (start > slen)
-		return(ft_strdup(""));
+		return (ft_strdup(""));
 	if (start + len > slen)
 		len = slen - start;
 	sub = malloc (len + 1);

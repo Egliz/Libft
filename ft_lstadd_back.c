@@ -1,48 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 00:44:15 by emorillo          #+#    #+#             */
-/*   Updated: 2024/11/02 17:23:37 by emorillo         ###   ########.fr       */
+/*   Created: 2025/01/27 12:39:29 by emorillo          #+#    #+#             */
+/*   Updated: 2025/02/01 17:24:46 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
-	int		len;
+	t_list	*last;
 
-	i = 0;
-	len = 0;
-	while (src[len])
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		len++;
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-	if (size > 0)
-	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (len);
 }
-/*
-int	main(void)
-{
-	size_t	i;
-	char	src[]= "Hola mundo!";
-	char	dest[] = "Adios";
-
-	i = ft_strlcpy(dest, src, 30);
-	printf("%zu\n", i);
-	printf("%s", dest);
-	return (0);
-} */

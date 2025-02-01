@@ -1,48 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 00:44:15 by emorillo          #+#    #+#             */
-/*   Updated: 2024/11/02 17:23:37 by emorillo         ###   ########.fr       */
+/*   Created: 2025/01/28 14:58:22 by emorillo          #+#    #+#             */
+/*   Updated: 2025/01/31 16:05:35 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t	i;
-	int		len;
+	t_list	*temp;
 
-	i = 0;
-	len = 0;
-	while (src[len])
+	if (lst == NULL || del == NULL)
+		return ;
+	while (*lst != NULL)
 	{
-		len++;
+		temp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = temp;
 	}
-	if (size > 0)
-	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (len);
+	*lst = NULL;
 }
-/*
-int	main(void)
-{
-	size_t	i;
-	char	src[]= "Hola mundo!";
-	char	dest[] = "Adios";
-
-	i = ft_strlcpy(dest, src, 30);
-	printf("%zu\n", i);
-	printf("%s", dest);
-	return (0);
-} */

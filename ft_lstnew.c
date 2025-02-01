@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 22:48:37 by emorillo          #+#    #+#             */
-/*   Updated: 2025/01/23 14:19:59 by emorillo         ###   ########.fr       */
+/*   Created: 2025/01/23 16:11:11 by emorillo          #+#    #+#             */
+/*   Updated: 2025/01/31 16:00:10 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstnew(void *content)
 {
-	char	num;
+	t_list	*new_node;
 
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-	}
-	num = (n % 10) + '0';
-	write(fd, &num, 1);
+	new_node = malloc(sizeof(t_list));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }
 /*
 int	main()
 {
-	int		num;
-	int		fd;
+	char	*num;
+	t_list	*node;
 
-	num = -22;
-	fd = 1;
-	ft_putnbr_fd(num, fd);
+	num = malloc(sizeof(char));
+	if(num == NULL)
+		return (1);
+	num = "42";
+	node = ft_lstnew(num);
+	if(!node)
+	{
+	//	free(num);
+		return (1);
+	}
+	printf("%s\n",(char *)node->content);
+//	free(node->content);
+	free(node);
 	return (0);
 }*/

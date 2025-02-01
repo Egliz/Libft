@@ -6,12 +6,11 @@
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:38:42 by emorillo          #+#    #+#             */
-/*   Updated: 2024/10/27 22:38:48 by emorillo         ###   ########.fr       */
+/*   Updated: 2024/11/02 01:14:20 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <stdio.h>*/
 
 void	ft_bzero(void *s, size_t n)
 {

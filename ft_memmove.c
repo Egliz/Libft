@@ -6,7 +6,7 @@
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:48:55 by emorillo          #+#    #+#             */
-/*   Updated: 2024/10/27 22:49:00 by emorillo         ###   ########.fr       */
+/*   Updated: 2024/11/02 15:16:21 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
+/*
+ int main() 
+{
+    char src[20] = "1234567890";
+    char dest[10];
+
+    ft_memmove(dest, src + 6, 4);
+    dest[4] = '\0';
+
+    printf("%s\n", dest);
+
+    return 0;
+}*/

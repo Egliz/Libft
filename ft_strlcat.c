@@ -6,7 +6,7 @@
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:55:31 by emorillo          #+#    #+#             */
-/*   Updated: 2024/10/27 22:55:47 by emorillo         ###   ########.fr       */
+/*   Updated: 2024/11/02 17:28:49 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 /*
 int	main(void)
 {
-	char	d[]= "klk";
-	char	s[]= "da la lu";
+	char	d[]= "Hola";
+	char	s[]= "mundo";
 	printf("antes, %s, %s", d, s);
 
 	printf("Despues: %li", ft_strlcat(d,s,5));

@@ -1,48 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 00:44:15 by emorillo          #+#    #+#             */
-/*   Updated: 2024/11/02 17:23:37 by emorillo         ###   ########.fr       */
+/*   Created: 2025/01/24 18:23:09 by emorillo          #+#    #+#             */
+/*   Updated: 2025/01/31 16:45:03 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
-	int		len;
+	int		i;
 
 	i = 0;
-	len = 0;
-	while (src[len])
+	while (lst != NULL)
 	{
-		len++;
+		i++;
+		lst = lst->next;
 	}
-	if (size > 0)
-	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (len);
+	return (i);
 }
-/*
-int	main(void)
-{
-	size_t	i;
-	char	src[]= "Hola mundo!";
-	char	dest[] = "Adios";
-
-	i = ft_strlcpy(dest, src, 30);
-	printf("%zu\n", i);
-	printf("%s", dest);
-	return (0);
-} */

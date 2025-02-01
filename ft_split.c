@@ -6,7 +6,7 @@
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 22:13:01 by emorillo          #+#    #+#             */
-/*   Updated: 2024/10/28 22:01:03 by emorillo         ###   ########.fr       */
+/*   Updated: 2024/11/02 16:45:05 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	free_array(char **str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -25,86 +25,80 @@ static void	free_array(char **str)
 	free(str);
 }
 
-static int count_words(char const *str, char c)
+static int	count_words(char *str, char c)
 {
-	int		i;
-	int		word;
+	int	i;
+	int	j;
 
 	i = 0;
-	word = 0;
+	j = 0;
 	while (str[i])
 	{
-		if ((i == 0 && str[i] != c) || (str[i] != c && \
-					str[i -1] == c && i > 0))
-		{
-			word++;
-		}
+		if (str[i] != c && (str[i + 1] == c || str[i + 1] == '\0'))
+			j++;
 		i++;
 	}
-	return (word);
+	return (j);
 }
 
-static char	*count_lett(char const **str, char c)
+static char	*get_next_word(char const **s, char c)
 {
 	int		i;
-	char	*s;
+	char	*str;
 
 	i = 0;
-	s = (char *)*str;
-	while (s[i] && s[i] != c)
+	str = (char *)*s;
+	while (str[i] && str[i] != c)
 		i++;
-	return (ft_substr(s, 0, i));
+	*s += i;
+	return (ft_substr(str, 0, i));
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		j;
-	int		k;
 	char	**new;
+	int		y;
 
-	k = 0;
-	if (s == NULL)
+	y = 0;
+	j = count_words((char *)s, c);
+	new = (char **)malloc((j + 1) * sizeof(char *));
+	if (!new)
 		return (NULL);
-	j = count_words(s, c);
-	new = malloc ((j + 1) * sizeof (char *));
 	while (*s != '\0')
 	{
 		if (*s != c)
 		{
-			new[k] = count_lett(&s, c);
-			if (new[k++] == NULL)
+			new[y] = get_next_word(&s, c);
+			if (!new[y++])
 			{
 				free_array(new);
 				return (NULL);
 			}
-			s += ft_strlen(new[k-1]);
 		}
 		else
 			s++;
 	}
-	new[k] = NULL;
+	new[y] = NULL;
 	return (new);
 }
 /*
-   int	main()
-   {
-   char *str = "Hola que tal estas";
-   char delimiter = ' ';
-   char **result = ft_split(str, delimiter);
+{int	main(void)
 
-   if (result == NULL)
-   {
-   printf("Error en ft_split\n");
-   return 1;
-   }
+	char	str[];
+	char	c;
+	char	**res;
+	int		i;
 
-// Mostrar el resultado de la función ft_split
-for (int i = 0; result[i] != NULL; i++)
-{
-printf("Palabra %d: %s\n", i + 1, result[i]);
-free(result[i]);  // Liberar cada palabra
-}
-
-free(result);  // Liberar el array
-return 0;
+	str[] = "     hola  que  tal";
+	c = ' ';
+	res = ft_split(str, c);
+	i = 0;
+	while (res[i])
+	{
+		printf("%s\n", res[i]);
+		i++;
+	}
+	free_array(res);
+	return (0);
 }*/

@@ -6,7 +6,7 @@
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 18:41:27 by emorillo          #+#    #+#             */
-/*   Updated: 2024/10/24 20:12:59 by emorillo         ###   ########.fr       */
+/*   Updated: 2024/11/02 00:35:33 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 /*
 char	my_ft(unsigned int n, char c)
 {
-	return (c + n);
+	return (ft_tolower(c));
 }
 
 int main()

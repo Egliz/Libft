@@ -1,48 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 00:44:15 by emorillo          #+#    #+#             */
-/*   Updated: 2024/11/02 17:23:37 by emorillo         ###   ########.fr       */
+/*   Created: 2025/01/26 20:25:53 by emorillo          #+#    #+#             */
+/*   Updated: 2025/02/01 17:20:06 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-	int		len;
-
-	i = 0;
-	len = 0;
-	while (src[len])
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
 	{
-		len++;
+		lst = lst->next;
 	}
-	if (size > 0)
-	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (len);
+	return (lst);
 }
-/*
-int	main(void)
-{
-	size_t	i;
-	char	src[]= "Hola mundo!";
-	char	dest[] = "Adios";
-
-	i = ft_strlcpy(dest, src, 30);
-	printf("%zu\n", i);
-	printf("%s", dest);
-	return (0);
-} */

@@ -6,7 +6,7 @@
 /*   By: emorillo <emorillo@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 00:53:04 by emorillo          #+#    #+#             */
-/*   Updated: 2024/10/27 22:35:53 by emorillo         ###   ########.fr       */
+/*   Updated: 2024/10/31 22:16:28 by emorillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;
-	size_t	i;
+	size_t			i;
 
 	i = 0;
-	if ( n == 0)
-		return(0);
+	if (n == 0)
+		return (0);
 	if (s1 == NULL || s2 == NULL)
 		return (0);
 	str1 = (unsigned char *) s1;
